@@ -55,14 +55,14 @@ In Universal Windows Platform (UWP) project, the Microsoft Authentication Librar
 In our sample authentication is done by using GraphServiceClient, which will be responsible for calling all future Graph APIs. 
 ```csharp
 Client = new GraphServiceClient("https://graph.microsoft.com/v1.0", 
-                                new DelegateAuthenticationProvider(async (requestMessage) => 
-                                { 
-                                    if (App.IdentityClientApp.Users == null || App.IdentityClientApp.Users.Count() == 0) 
-                                        tokenRequest = awaitApp.IdentityClientApp.AcquireTokenAsync(App.Scopes, App.UiParent); 
-                                    else 
-                                        tokenRequest = awaitApp.IdentityClientApp.AcquireTokenSilentAsync(App.Scopes, App.IdentityClientApp.Users.FirstOrDefault()); 
-                                    requestMessage.Headers.Authorization = newAuthenticationHeaderValue("bearer", tokenRequest.AccessToken); 
-                                }));
+new DelegateAuthenticationProvider(async (requestMessage) => 
+{ 
+  if (App.IdentityClientApp.Users == null || App.IdentityClientApp.Users.Count() == 0) 
+   tokenRequest = awaitApp.IdentityClientApp.AcquireTokenAsync(App.Scopes, App.UiParent); 
+  else 
+   tokenRequest = awaitApp.IdentityClientApp.AcquireTokenSilentAsync(App.Scopes, App.IdentityClientApp.Users.FirstOrDefault()); 
+ requestMessage.Headers.Authorization = newAuthenticationHeaderValue("bearer", tokenRequest.AccessToken); 
+}));
 ```
 
 **Step 6:**
