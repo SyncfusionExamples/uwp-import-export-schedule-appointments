@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:local="clr-namespace:ScheduleSample;assembly=XamarinConnect"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ScheduleSample.ScheduleView"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfSchedule.XForms;assembly=Syncfusion.SfSchedule.XForms">
+    
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.1*"/>
+                <RowDefinition Height="0.8*"/>
+            </Grid.RowDefinitions>
+            <Button Text="ExportToOutlook" x:Name="export" Command="{Binding ExportToOutlookCommand}" />
+            <Button Text="ImportToSchedule" x:Name="import" Command="{Binding ImportToScheduleCommand}" Grid.Row="1"/>
+            <syncfusion:SfSchedule x:Name="schedule"
+                                   Grid.Row="2"
+                                   ScheduleView="WeekView" 
+                                   DataSource = "{Binding Meetings}">
+                <syncfusion:SfSchedule.AppointmentMapping>
+                    <syncfusion:ScheduleAppointmentMapping 
+                        ColorMapping="Color"
+                        EndTimeMapping="To"
+                        StartTimeMapping="From"
+                        SubjectMapping="EventName"
+                        IsAllDayMapping="AllDay"/>
+                </syncfusion:SfSchedule.AppointmentMapping>
+                <syncfusion:SfSchedule.BindingContext>
+                    <local:ViewModel x:Name="viewModel"/>
+                </syncfusion:SfSchedule.BindingContext>
+            </syncfusion:SfSchedule>
+        </Grid>
+    </ContentPage.Content>
+
+    <ContentPage.Behaviors>
+        <local:ScheduleBehavior />
+    </ContentPage.Behaviors>
+</ContentPage>

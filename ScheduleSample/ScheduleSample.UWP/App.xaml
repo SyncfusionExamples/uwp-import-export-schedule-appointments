@@ -1,0 +1,13 @@
+﻿<Application
+    x:Class="ScheduleSample.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ScheduleSample.UWP"
+    RequestedTheme="Light">
+    <Application.Resources>
+        <x:String x:Key="ida:ClientId">d897ce54-b34b-40d1-9bbc-50ae948659fa</x:String>
+        <x:String x:Key="ida:AADInstance">https://login.microsoftonline.com/</x:String>
+        <x:String x:Key="ida:Domain">syncfusion.com</x:String>
+    </Application.Resources>
+
+</Application>
