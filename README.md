@@ -10,7 +10,7 @@ In portable project, replace your application ID inside App.cs.
 
 ```csharp
 //You need to replace your Application ID 
-public static string ClientID = "61d2216e-06e6-4940-8c20-c3a923a40620"; 
+public static string ClientID = ""; 
 public static string[] Scopes = { "User.Read", "Calendars.Read", "Calendars.ReadWrite" };
 ```
 
